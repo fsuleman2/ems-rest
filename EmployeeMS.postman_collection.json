@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "b34048ee-7c5e-4486-91da-559bbfaaf04e",
+		"name": "EmployeeMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16731493",
+		"_collection_link": "https://www.postman.com/warped-meteor-906901/workspace/ems-api-s/collection/16731493-b34048ee-7c5e-4486-91da-559bbfaaf04e?action=share&source=collection_link&creator=16731493"
+	},
+	"item": [
+		{
+			"name": "addEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empName\":\"mud\",\r\n    \"empAddress\":\"BLGR\",\r\n    \"empSalary\":300000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/ems/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ems",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmployee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"empId\": 52,\r\n    \"empName\": \"mud\",\r\n    \"empAddress\": \"BLGR\",\r\n    \"empSalary\": 300000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9090/ems/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ems",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmployeeSalaryById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ems/id/2/salary?empSalary=60000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ems",
+						"id",
+						"2",
+						"salary"
+					],
+					"query": [
+						{
+							"key": "empSalary",
+							"value": "60000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmpById",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getAllEmpDetails",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ems/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ems",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEmployee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9090/ems/id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9090",
+					"path": [
+						"ems",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
