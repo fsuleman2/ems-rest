@@ -26,7 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		Optional<Employee> emp = employeeRepository.findById(Id);
 		if (emp.isPresent()) {
 			employeeEntity = emp.get();
-			employeeDTO = employeeDTO.toDTO(employeeEntity);
+			employeeDTO = EmployeeDTO.toDTO(employeeEntity);
 		}
 		return employeeDTO;
 	}
@@ -34,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public EmployeeDTO addEmployeeDetails(Employee employee) {
 		employee = employeeRepository.save(employee);
-		employeeDTO = employeeDTO.toDTO(employee);
+		employeeDTO = EmployeeDTO.toDTO(employee);
 		return employeeDTO;
 	}
 
@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		if (emp.isPresent()) {
 			employeeEntity = emp.get();
 			employeeEntity = employeeRepository.save(employee);
-			employeeDTO = employeeDTO.toDTO(employeeEntity);
+			employeeDTO = EmployeeDTO.toDTO(employeeEntity);
 		}
 		return employeeDTO;
 	}
@@ -56,7 +56,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 			employeeEntity = empOptional.get();
 			employeeEntity.setEmpSalary(salary);
 			Employee empUpdatedEntity = employeeRepository.save(employeeEntity);
-			employeeDTO = employeeDTO.toDTO(empUpdatedEntity);
+			employeeDTO = EmployeeDTO.toDTO(empUpdatedEntity);
 		}
 		return employeeDTO;
 	}

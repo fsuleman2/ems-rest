@@ -2,6 +2,7 @@ package com.demo.ems.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
@@ -54,7 +55,7 @@ public class EmployeeDTO {
 		this.empSalary = empSalary;
 	}
 
-	public EmployeeDTO toDTO(Employee employee) {
+	public static EmployeeDTO toDTO(Employee employee) {
         if (employee == null) {
             return null;
         }
@@ -67,11 +68,13 @@ public class EmployeeDTO {
         );
     }
 	public List<EmployeeDTO> toDTOList(List<Employee> employees){
-		List<EmployeeDTO> empList = new ArrayList<>();
-		for(Employee employee: employees) {
-			empList.add(new EmployeeDTO(employee.getEmpId(), employee.getEmpName(), employee.getEmpAddress(), employee.getEmpSalary()));
-		}
-		return empList;
+		/********** JAVA 1.7 WAY OF LOOPING AND ADDING **********/
+//		List<EmployeeDTO> empList = new ArrayList<>();
+//		for(Employee employee: employees) {
+//			empList.add(new EmployeeDTO(employee.getEmpId(), employee.getEmpName(), employee.getEmpAddress(), employee.getEmpSalary()));
+//		}
+		/*********** JAVA 1.8 WAY OF LOOPING AND ADDING ***********/
+		return employees.stream().map(EmployeeDTO::toDTO).collect(Collectors.toList());
 		
 	}
 
